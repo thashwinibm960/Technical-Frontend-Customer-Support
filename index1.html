@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bundle & Save – Single Format</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f6f7;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 14px;
+    }
+
+    h3 {
+      text-align: center;
+      color: #4fae9e;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .bundle {
+      border: 2px solid #dcdcdc;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 14px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.35s ease;
+    }
+
+    .bundle.active {
+      border-color: #4fae9e;
+      background: #f2fbf9;
+    }
+
+    .popular {
+      position: absolute;
+      top: -12px;
+      right: 12px;
+      background: #4fae9e;
+      color: #fff;
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .bundle-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .off {
+      font-size: 11px;
+      padding: 3px 6px;
+      background: #4fae9e;
+      color: #fff;
+      border-radius: 4px;
+    }
+    .old {
+        text-decoration: line-through;
+        color: #999;
+        font-size: 12px;
+    }
+    .right {
+        text-align: right;
+    }
+
+    .price { font-weight: bold; }
+
+   
+    .bundle-content {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+    }
+
+    .bundle.active .bundle-content {
+      max-height: 220px;
+      margin-top: 12px;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    select {
+      width: 100%;
+      padding: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .shipping { color: #4fae9e; }
+
+    button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 12px;
+      background: #4fae9e;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h3>Bundle & Save</h3>
+
+ 
+  <div class="bundle" data-price="195" onclick="selectBundle(this)">
+    <div class="bundle-header">
+      <div class="left">
+        <input type="radio" name="bundle" />
+        <strong>1 Pair</strong>
+        <div class="off">10% OFF</div>
+         
+      </div>
+          <div class="right">
+          <div class="price">$10.00 USD</div>
+          <div class="old">$24.00 USD</div>
+      </div>
+     
+
+    </div>
+     <small>Standard Price</small>
+    <div class="bundle-content">
+        <div class="row">
+        <select><option>#1 Size</option><option>S</option><option>M</option><option>L</option></select>
+        <select><option>Colour</option><option>Black</option><option>White</option></select>
+      </div>
+      <div class="row">
+        <select><option>#2 Size</option><option>S</option><option>M</option><option>L</option></select>
+        <select><option>Colour</option><option>Black</option><option>White</option></select>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="bundle active" data-price="345" onclick="selectBundle(this)">
+    <span class="popular">Most Popular</span>
+    <div class="bundle-header">
+      <div class="left">
+        <input type="radio" name="bundle" checked />
+        <strong>2 Pair</strong>
+        <div class="off">20% OFF</div>
+      </div>
+      
+      <div class="right">
+          <div class="price">$18.00 USD</div>
+          <div class="old">$24.00 USD</div>
+        
+      </div>
+       
+    </div>
+
+    <div class="bundle-content">
+      <div class="row">
+        <select><option>#1 Size</option><option>S</option><option>M</option><option>L</option></select>
+        <select><option>Colour</option><option>Black</option><option>White</option></select>
+      </div>
+      <div class="row">
+        <select><option>#2 Size</option><option>S</option><option>M</option><option>L</option></select>
+        <select><option>Colour</option><option>Black</option><option>White</option></select>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="bundle" data-price="528" onclick="selectBundle(this)">
+    <div class="bundle-header">
+      <div class="left">
+        <input type="radio" name="bundle" />
+        <strong>3 Pair</strong>
+         <div class="off">30% OFF</div>
+      </div>
+      <div class="right">
+          <div class="price">$24.00 USD</div>
+          <div class="old">$24.00 USD</div>
+        
+      </div>
+    </div>
+    <div class="bundle-content">
+        <div class="row">
+        <select><option>#1 Size</option><option>S</option><option>M</option><option>L</option></select>
+        <select><option>Colour</option><option>Black</option><option>White</option></select>
+      </div>
+      <div class="row">
+        <select><option>#2 Size</option><option>S</option><option>M</option><option>L</option></select>
+        <select><option>Colour</option><option>Black</option><option>White</option></select>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="shipping">Free Delivery</div>
+    <div><strong>Total :<span id="total">$18.00 USD</span></strong></div>
+  </div>
+
+  <button>+ Add to Cart</button>
+</div>
+
+<script>
+  function selectBundle(selected) {
+    document.querySelectorAll('.bundle').forEach(b => {
+      b.classList.remove('active');
+      b.querySelector('input').checked = false;
+    });
+
+    selected.classList.add('active');
+    selected.querySelector('input').checked = true;
+    document.getElementById('total').innerText = selected.dataset.price + '.00';
+  }
+</script>
+
+</body>
+</html>
